@@ -136,13 +136,13 @@ The model was trained in two stages:
 - **dev_clean**: **3.46% WER**
 
 
-**## Fine Tuning**
+## Fine Tuning
 
   - Fine-tuned the pretrained CTC model instead of training from scratch
   - Applied **stronger SpecAugment** to improve robustness to noise and variability (SpecAugment intentionally hides small parts of the speech signal during training so the model learns to transcribe accurately even when audio is noisy or incomplete.)
   - Used conservative learning rate settings to avoid overfitting
 
-**## NEXT STEPS**
+## NEXT STEPS
 
 The current model has achieved strong performance using a CTC-based architecture. Further improvements can be made through the following next steps:
 
