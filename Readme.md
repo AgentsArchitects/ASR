@@ -94,10 +94,12 @@ Due to size constraints, the following resources are not stored in this reposito
 
 ## Link to these resources :
 ```
-- Manifest files: <LINK>
-- Decoded audio: <LINK>
-- Model & tokenizer: <LINK>
-- Checkpoints: <LINK>
+Manifest files, Decoded audio, Model & tokenizer, Checkpoints: https://drive.google.com/drive/folders/1NE7afN12yfLoW94lh8H7QZ-XLk0k5vt8?usp=sharing
 
+Decoded Audio files : https://drive.google.com/drive/folders/1NE7afN12yfLoW94lh8H7QZ-XLk0k5vt8?usp=sharing
+
+NOTE - You can download audio files from yourself using the script i have added
 ```
+
+
 
