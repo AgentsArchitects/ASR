@@ -98,8 +98,62 @@ Manifest files, Decoded audio, Model & tokenizer, Checkpoints: https://drive.goo
 
 Decoded Audio files : https://drive.google.com/drive/folders/1NE7afN12yfLoW94lh8H7QZ-XLk0k5vt8?usp=sharing
 
-NOTE - You can download audio files from yourself using the script i have added
+NOTE - You can download audio files from yourself using the code
 ```
+<br>
+
+## Model Performance (current)
+
+**Model Type**
+- **Model Type:**
+- **CTC-based ASR model (Connectionist Temporal Classification)**
+
+---
+
+### Training Summary
+
+The model was trained in two stages:
+
+**Stage 1 – Initial Training**
+- Trained from scratch for **57 epochs**
+- **Early stopping** was applied to prevent overfitting
+- Initial performance achieved:
+  - **dev_other**: ~**8.0% WER**
+
+**Stage 2 – Fine-Tuning**
+- Fine-tuned from the best-performing checkpoint
+- **Reduced learning rate** for stable adaptation
+- Applied **stronger SpecAugment** to improve robustness
+- Fine-tuning was run for **19 epochs**
+- Final performance achieved:
+  - **dev_other**: **6.13% WER**
+  - **dev_clean**: **3.46% WER**
+
+---
+
+**Evaluation Results:**
+- **dev_other**: **6.13% WER**
+- **dev_clean**: **3.46% WER**
 
 
+**## Fine Tuning**
 
+  - Fine-tuned the pretrained CTC model instead of training from scratch
+  - Applied **stronger SpecAugment** to improve robustness to noise and variability (SpecAugment intentionally hides small parts of the speech signal during training so the model learns to transcribe accurately even when audio is noisy or incomplete.)
+  - Used conservative learning rate settings to avoid overfitting
+
+**## NEXT STEPS**
+
+The current model has achieved strong performance using a CTC-based architecture. Further improvements can be made through the following next steps:
+
+### 1. Add Language Model–Based Decoding
+- Integrate an external Language Model (e.g., n-gram / neural LM) with CTC decoding
+- Use beam search with language model scoring
+- Expected to significantly reduce errors related to grammar, word selection, and homophones  
+- This is the **highest-impact next step**, especially for `dev_other`
+
+### 2. Transition to Transducer (RNN-T) Model
+- Move from CTC to a Transducer-based architecture
+- Enables joint acoustic and language modeling
+- Better suited for long-form and streaming speech
+- Considered a **next training phase**, requiring additional compute and tuning
