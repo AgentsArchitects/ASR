@@ -129,8 +129,6 @@ The model was trained in two stages:
   - **dev_other**: **6.13% WER**
   - **dev_clean**: **3.46% WER**
 
----
-
 **Evaluation Results:**
 - **dev_other**: **6.13% WER**
 - **dev_clean**: **3.46% WER**
